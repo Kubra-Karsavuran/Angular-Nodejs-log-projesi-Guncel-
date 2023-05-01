@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AnaService } from '../services/ana.service';
 import { titra_shema } from './shema';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ana',
@@ -21,5 +22,12 @@ export class AnaComponent {
     this.anaService.type().subscribe((data) => {
       this.types = data;
     });
+  }
+
+  // TODO message verisini almak için
+  text = '';
+  onkeyMesaj(event: any) {
+    this.text = event.target.value;
+    console.log(this.text);
   }
 }
