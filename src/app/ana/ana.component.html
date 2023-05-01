@@ -20,31 +20,30 @@
         <label for="exampleFormControlInput1" class="form-label"
           ><b>Aranan Type Verisi</b></label
         >
-        <form action="">
-          <div ngbDropdown class="dropdown">
-            <button
-              ngbDropdownToggle
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Dropdown button
-            </button>
-            <ul ngbDropdownMenu class="dropdown-menu">
-              <div *ngFor="let typeveri of types">
-                <li>
-                  <a
-                    (click)="onkeyType(typeveri)"
-                    ngbDropdownItem
-                    class="dropdown-item"
-                    >{{ typeveri }}</a
-                  >
-                </li>
-              </div>
-            </ul>
-          </div>
-        </form>
+
+        <div ngbDropdown class="dropdown">
+          <button
+            ngbDropdownToggle
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul ngbDropdownMenu class="dropdown-menu">
+            <div *ngFor="let typeveri of types">
+              <li>
+                <a
+                  (click)="onkeyType(typeveri)"
+                  ngbDropdownItem
+                  class="dropdown-item"
+                  >{{ typeveri }}</a
+                >
+              </li>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="col-lg-2">
