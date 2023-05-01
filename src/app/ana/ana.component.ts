@@ -42,4 +42,11 @@ export class AnaComponent {
     this.text1 = event.target.value;
     console.log(this.text1);
   }
+
+  // TODO description verısını bulma ıslemı yapılıyor
+  text2 = '';
+  descriptionGet(event: any) {
+    this.text2 = event.target.value;
+    console.log(this.text2);
+  }
 }
