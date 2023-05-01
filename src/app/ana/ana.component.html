@@ -52,14 +52,13 @@
         <label for="exampleFormControlInput1" class="form-label"
           ><b>Aranan Timestamp Verisi</b></label
         >
-        <form action="">
-          <input
-            type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
-            value="Hepsi"
-          />
-        </form>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          value="Hepsi"
+          (keyup)="onkeytimez($event)"
+        />
       </div>
     </div>
     <div class="col-lg-2">

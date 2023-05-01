@@ -35,4 +35,11 @@ export class AnaComponent {
   onkeyType(veri: any) {
     console.log(veri);
   }
+
+  // TODO timestamp veri getırme işlemi
+  text1 = '';
+  onkeytimez(event: any) {
+    this.text1 = event.target.value;
+    console.log(this.text1);
+  }
 }
