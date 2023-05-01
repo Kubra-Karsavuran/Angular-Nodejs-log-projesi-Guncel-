@@ -34,9 +34,12 @@
             <ul ngbDropdownMenu class="dropdown-menu">
               <div *ngFor="let typeveri of types">
                 <li>
-                  <a ngbDropdownItem class="dropdown-item" href="#">{{
-                    typeveri
-                  }}</a>
+                  <a
+                    (click)="onkeyType(typeveri)"
+                    ngbDropdownItem
+                    class="dropdown-item"
+                    >{{ typeveri }}</a
+                  >
                 </li>
               </div>
             </ul>

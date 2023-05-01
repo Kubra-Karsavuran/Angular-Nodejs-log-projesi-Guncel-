@@ -30,4 +30,9 @@ export class AnaComponent {
     this.text = event.target.value;
     console.log(this.text);
   }
+
+  // TODO type verısı
+  onkeyType(veri: any) {
+    console.log(veri);
+  }
 }
