@@ -49,4 +49,11 @@ export class AnaComponent {
     this.text2 = event.target.value;
     console.log(this.text2);
   }
+
+  // TODO flight veri alma işlemi
+  text3 = '';
+  flightGet(event: any) {
+    this.text3 = event.target.value;
+    console.log(this.text3);
+  }
 }

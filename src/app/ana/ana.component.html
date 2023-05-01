@@ -80,14 +80,13 @@
         <label for="exampleFormControlInput1" class="form-label"
           ><b>Aranan Flight_id Verisi</b></label
         >
-        <form action="">
-          <input
-            type="text"
-            class="form-control"
-            id="exampleFormControlInput1"
-            value="Hepsi"
-          />
-        </form>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          value="Hepsi"
+          (keyup)="flightGet($event)"
+        />
       </div>
     </div>
     <div class="col-lg-1"></div>
