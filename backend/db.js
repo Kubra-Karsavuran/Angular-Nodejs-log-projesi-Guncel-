@@ -59,17 +59,10 @@ app.get("/api/sonuc/:text/:text1/:text2/:text3/:typesecilen", (req, res) => {
   console.log(req.params.text3); //flight
   console.log(req.params.typesecilen); //type
 
-  titra_shema
-    .find({
-      message: req.params.text,
-      type: req.params.typesecilen,
-      description: req.params.text2,
-      flight_id: req.params.text3,
-      timestamp: req.params.text1,
-    })
-    .then((posts) => {
-      console.log("oldu sanıırm");
-    });
+  titra_shema.find({ type: req.params.typesecilen }).then((posts) => {
+    // res.send(posts);
+    console.log("oldu sanırım");
+  });
 });
 
 const port = 3000;
