@@ -44,6 +44,9 @@
             </div>
           </ul>
         </div>
+        <div *ngIf="typesecilen">
+          <p>{{ typesecilen }}</p>
+        </div>
       </div>
     </div>
     <div class="col-lg-2">
@@ -90,7 +93,12 @@
     </div>
     <div class="col-lg-1"></div>
     <div style="text-align: center">
-      <button style="margin-bottom: 10px" type="button" class="btn btn-primary">
+      <button
+        (click)="filtrelemeYap()"
+        style="margin-bottom: 10px"
+        type="button"
+        class="btn btn-primary"
+      >
         Sonuçlar
       </button>
     </div>

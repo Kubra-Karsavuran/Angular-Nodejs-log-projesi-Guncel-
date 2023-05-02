@@ -32,8 +32,10 @@ export class AnaComponent {
   }
 
   // TODO type verısı
+  typesecilen = '';
   onkeyType(veri: any) {
     console.log(veri);
+    this.typesecilen = veri;
   }
 
   // TODO timestamp veri getırme işlemi
@@ -55,5 +57,14 @@ export class AnaComponent {
   flightGet(event: any) {
     this.text3 = event.target.value;
     console.log(this.text3);
+  }
+
+  filtrelemeYap() {
+    console.log('verilerin en son halı');
+    this.anaService
+      .sonucGet(this.text1, this.text2, this.text3, this.text, this.typesecilen)
+      .subscribe((data) => {
+        console.log('oldu sanırım');
+      });
   }
 }

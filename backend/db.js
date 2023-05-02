@@ -51,6 +51,15 @@ app.get("/api/typeget", (req, res) => {
   }); // bunun dısında dızı yazdırma
 });
 
+app.get("/api/sonuc/:text/:text1/:text2/:text3/:typesecilen", (req, res) => {
+  console.log("bakalım fonksıyon calısacakmı");
+  console.log(req.params.text);
+  console.log(req.params.text1);
+  console.log(req.params.text2);
+  console.log(req.params.text3);
+  console.log(req.params.typesecilen);
+});
+
 const port = 3000;
 app.listen(port, () => {
   console.log("site http ye sıkıntısız baglana bıldı");

@@ -18,4 +18,25 @@ export class AnaService {
   type(): Observable<titra_shema[]> {
     return this.http.get<titra_shema[]>('/api/typeget');
   }
+
+  sonucGet(
+    text1: any,
+    text2: any,
+    text3: any,
+    text: any,
+    typesecilen: any
+  ): Observable<titra_shema[]> {
+    return this.http.get<titra_shema[]>(
+      '/api/sonuc/' +
+        text +
+        '/' +
+        text1 +
+        '/' +
+        text2 +
+        '/' +
+        text3 +
+        '/' +
+        typesecilen
+    );
+  }
 }
