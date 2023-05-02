@@ -53,11 +53,23 @@ app.get("/api/typeget", (req, res) => {
 
 app.get("/api/sonuc/:text/:text1/:text2/:text3/:typesecilen", (req, res) => {
   console.log("bakalım fonksıyon calısacakmı");
-  console.log(req.params.text);
-  console.log(req.params.text1);
-  console.log(req.params.text2);
-  console.log(req.params.text3);
-  console.log(req.params.typesecilen);
+  console.log(req.params.text); // mesaj
+  console.log(req.params.text1); //zaman
+  console.log(req.params.text2); // description
+  console.log(req.params.text3); //flight
+  console.log(req.params.typesecilen); //type
+
+  titra_shema
+    .find({
+      message: req.params.text,
+      type: req.params.typesecilen,
+      description: req.params.text2,
+      flight_id: req.params.text3,
+      timestamp: req.params.text1,
+    })
+    .then((posts) => {
+      console.log("oldu sanıırm");
+    });
 });
 
 const port = 3000;

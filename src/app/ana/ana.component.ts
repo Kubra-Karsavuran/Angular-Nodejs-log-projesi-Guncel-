@@ -25,42 +25,41 @@ export class AnaComponent {
   }
 
   // TODO message verisini almak için
-  text = '';
+  text = 'null';
   onkeyMesaj(event: any) {
     this.text = event.target.value;
     console.log(this.text);
   }
 
   // TODO type verısı
-  typesecilen = '';
+  typesecilen = 'null';
   onkeyType(veri: any) {
     console.log(veri);
     this.typesecilen = veri;
   }
 
   // TODO timestamp veri getırme işlemi
-  text1 = '';
+  text1 = 'null';
   onkeytimez(event: any) {
     this.text1 = event.target.value;
     console.log(this.text1);
   }
 
   // TODO description verısını bulma ıslemı yapılıyor
-  text2 = '';
+  text2 = 'null';
   descriptionGet(event: any) {
     this.text2 = event.target.value;
     console.log(this.text2);
   }
 
   // TODO flight veri alma işlemi
-  text3 = '';
+  text3 = 'null';
   flightGet(event: any) {
     this.text3 = event.target.value;
     console.log(this.text3);
   }
 
   filtrelemeYap() {
-    console.log('verilerin en son halı');
     this.anaService
       .sonucGet(this.text1, this.text2, this.text3, this.text, this.typesecilen)
       .subscribe((data) => {
