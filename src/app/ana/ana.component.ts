@@ -14,6 +14,7 @@ export class AnaComponent {
   // TODO verileri ekrana yazdırma ıslemı
   dataSee: titra_shema[] = [];
   types: titra_shema[] = [];
+  guncel_veri: titra_shema[] = [];
   ngOnInit() {
     this.anaService.see().subscribe((data) => {
       this.dataSee = data;
@@ -25,45 +26,51 @@ export class AnaComponent {
   }
 
   // TODO message verisini almak için
-  text = 'null';
+  text = '';
   onkeyMesaj(event: any) {
     this.text = event.target.value;
     console.log(this.text);
   }
 
   // TODO type verısı
-  typesecilen = 'null';
+  typesecilen = '';
   onkeyType(veri: any) {
     console.log(veri);
     this.typesecilen = veri;
   }
 
   // TODO timestamp veri getırme işlemi
-  text1 = 'null';
+  text1 = '';
   onkeytimez(event: any) {
     this.text1 = event.target.value;
     console.log(this.text1);
   }
 
   // TODO description verısını bulma ıslemı yapılıyor
-  text2 = 'null';
+  text2 = '';
   descriptionGet(event: any) {
     this.text2 = event.target.value;
     console.log(this.text2);
   }
 
   // TODO flight veri alma işlemi
-  text3 = 'null';
+  text3 = '';
   flightGet(event: any) {
     this.text3 = event.target.value;
     console.log(this.text3);
   }
 
+  asil: boolean = true;
+  ek: boolean = false;
+  //TODO filtreleme kısmı burda
   filtrelemeYap() {
+    this.asil = false;
+    this.ek = true;
+
     this.anaService
       .sonucGet(this.text1, this.text2, this.text3, this.text, this.typesecilen)
       .subscribe((data) => {
-        console.log('oldu sanırım');
+        this.guncel_veri = data;
       });
   }
 }

@@ -51,18 +51,55 @@ app.get("/api/typeget", (req, res) => {
   }); // bunun dısında dızı yazdırma
 });
 
-app.get("/api/sonuc/:text/:text1/:text2/:text3/:typesecilen", (req, res) => {
-  console.log("bakalım fonksıyon calısacakmı");
-  console.log(req.params.text); // mesaj
-  console.log(req.params.text1); //zaman
-  console.log(req.params.text2); // description
-  console.log(req.params.text3); //flight
-  console.log(req.params.typesecilen); //type
+//TODO filtreleme işlemi
+app.get("/api/sonuc", (req, res) => {
+  dizim = [
+    req.query.message,
+    req.query.time,
+    req.query.description,
+    req.query.flight,
+    req.query.type,
+  ];
 
-  titra_shema.find({ type: req.params.typesecilen }).then((posts) => {
-    // res.send(posts);
-    console.log("oldu sanırım");
-  });
+  var sorgu;
+
+  for (var i = 0; i < 5; i++) {
+    if (dizim[i] !== "") {
+      if (i == 0) {
+        mesaj_verisi = "message: " + dizim[i];
+        sorgu = mesaj_verisi;
+      }
+      if (i == 1) {
+        times_verisi = "timestamp: " + dizim[i];
+        sorgu = sorgu + ", " + times_verisi;
+      }
+      if (i == 2) {
+        des_verisi = "description: " + dizim[i];
+        sorgu = sorgu + ", " + des_verisi;
+      }
+      if (i == 3) {
+        fil_verisi = "flight_id: " + dizim[i];
+        sorgu = sorgu + ", " + fil_verisi;
+      }
+      if (i == 4) {
+        type_verisi = "type: " + dizim[i];
+        sorgu = sorgu + ", " + type_verisi;
+      }
+    }
+  }
+
+  console.log("OLUSAN SORGU VERISI BURDA");
+  console.log(sorgu);
+
+  titra_shema
+    .find({
+      sorgu,
+    })
+    .then((posts) => {
+      console.log("oldu sanırımverı tabanı");
+      console.log(posts);
+      res.send(posts);
+    });
 });
 
 const port = 3000;
