@@ -91,15 +91,11 @@ app.get("/api/sonuc", (req, res) => {
   console.log("OLUSAN SORGU VERISI BURDA");
   console.log(sorgu);
 
-  titra_shema
-    .find({
-      sorgu,
-    })
-    .then((posts) => {
-      console.log("oldu sanırımverı tabanı");
-      console.log(posts);
-      res.send(posts);
-    });
+  titra_shema.find(sorgu).then((posts) => {
+    console.log("oldu sanırımverı tabanı");
+    console.log(posts);
+    res.send(posts);
+  });
 });
 
 const port = 3000;
