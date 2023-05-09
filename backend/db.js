@@ -53,48 +53,33 @@ app.get("/api/typeget", (req, res) => {
 
 //TODO filtreleme işlemi
 app.get("/api/sonuc", (req, res) => {
-  dizim = [
-    req.query.message,
-    req.query.time,
-    req.query.description,
-    req.query.flight,
-    req.query.type,
-  ];
+  console.log("gelen dolu verı bakalım ne olacak");
+  console.log(req.query);
 
-  var sorgu;
+  var veri = new Object();
 
-  for (var i = 0; i < 5; i++) {
-    if (dizim[i] !== "") {
-      if (i == 0) {
-        mesaj_verisi = "message: " + dizim[i];
-        sorgu = mesaj_verisi;
-      }
-      if (i == 1) {
-        times_verisi = "timestamp: " + dizim[i];
-        sorgu = sorgu + ", " + times_verisi;
-      }
-      if (i == 2) {
-        des_verisi = "description: " + dizim[i];
-        sorgu = sorgu + ", " + des_verisi;
-      }
-      if (i == 3) {
-        fil_verisi = "flight_id: " + dizim[i];
-        sorgu = sorgu + ", " + fil_verisi;
-      }
-      if (i == 4) {
-        type_verisi = "type: " + dizim[i];
-        sorgu = sorgu + ", " + type_verisi;
-      }
-    }
+  if (req.query.type !== "" && req.query.type !== undefined) {
+    veri.type = new RegExp(req.query.type);
+  }
+  if (req.query.message !== "" && req.query.message !== undefined) {
+    veri.message = new RegExp(req.query.message);
+  }
+  if (req.query.description !== "" && req.query.description !== undefined) {
+    veri.description = new RegExp(req.query.description);
+  }
+  if (req.query.flight_id !== "" && req.query.flight_id !== undefined) {
+    veri.flight_id = new RegExp(req.query.flight_id);
+  }
+  if (req.query.timestamp !== "" && req.query.timestamp !== undefined) {
+    veri.timestamp = new RegExp(req.query.timestamp);
   }
 
-  console.log("OLUSAN SORGU VERISI BURDA");
-  console.log(sorgu);
+  console.log(veri);
 
-  titra_shema.find(sorgu).then((posts) => {
-    console.log("oldu sanırımverı tabanı");
-    console.log(posts);
+  titra_shema.find(veri).then((posts) => {
+    console.log("veritabanı oldu");
     res.send(posts);
+    console.log(posts);
   });
 });
 

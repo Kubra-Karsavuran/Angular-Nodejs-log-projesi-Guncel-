@@ -26,10 +26,10 @@ export class AnaComponent {
   }
 
   // TODO message verisini almak için
-  text = '';
+  message = '';
   onkeyMesaj(event: any) {
-    this.text = event.target.value;
-    console.log(this.text);
+    this.message = event.target.value;
+    console.log(this.message);
   }
 
   // TODO type verısı
@@ -40,24 +40,24 @@ export class AnaComponent {
   }
 
   // TODO timestamp veri getırme işlemi
-  text1 = '';
+  time = '';
   onkeytimez(event: any) {
-    this.text1 = event.target.value;
-    console.log(this.text1);
+    this.time = event.target.value;
+    console.log(this.time);
   }
 
   // TODO description verısını bulma ıslemı yapılıyor
-  text2 = '';
+  description = '';
   descriptionGet(event: any) {
-    this.text2 = event.target.value;
-    console.log(this.text2);
+    this.description = event.target.value;
+    console.log(this.description);
   }
 
   // TODO flight veri alma işlemi
-  text3 = '';
+  flight = '';
   flightGet(event: any) {
-    this.text3 = event.target.value;
-    console.log(this.text3);
+    this.flight = event.target.value;
+    console.log(this.flight);
   }
 
   asil: boolean = true;
@@ -68,7 +68,13 @@ export class AnaComponent {
     this.ek = true;
 
     this.anaService
-      .sonucGet(this.text1, this.text2, this.text3, this.text, this.typesecilen)
+      .sonucGet(
+        this.message,
+        this.typesecilen,
+        this.description,
+        this.time,
+        this.flight
+      )
       .subscribe((data) => {
         this.guncel_veri = data;
       });

@@ -21,21 +21,21 @@ export class AnaService {
 
   // TODO filtreleme kısmı burda
   sonucGet(
-    text1: any, //time3
-    text2: any, //description3
-    text3: any, //flight3
-    text: any, //mesaj3
-    typesecilen: any //type
+    message: any,
+    typesecilen: any,
+    description: any,
+    time: any,
+    flight: any
   ): Observable<titra_shema[]> {
     return this.http.get<titra_shema[]>(
       '/api/sonuc?message=' +
-        text +
-        '&time=' +
-        text1 +
+        message +
+        '&timestamp=' +
+        time +
         '&description=' +
-        text2 +
-        '&flight=' +
-        text3 +
+        description +
+        '&flight_id=' +
+        flight +
         '&type=' +
         typesecilen +
         ''
